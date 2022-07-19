@@ -4,7 +4,7 @@ import os
 
 save_folder = "voice1_cutAudio"
 data_folder = "voice1_build"
-cat_sec = 1000
+cat_sec = 360
 
 
 
