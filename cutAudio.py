@@ -20,7 +20,7 @@ for speaker in speakers:
         print(wav)
         song = AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav)
         sec = song.duration_seconds
-        rule_times = sec//cat_sec
+        rule_times = int(sec//cat_sec)
         rule_times_flout = sec%cat_sec
         print(rule_times)
         print(sec,cat_sec)
