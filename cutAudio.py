@@ -14,7 +14,7 @@ for speaker in speakers:
         os.mkdir("{}/{}".format(save_folder,speaker))
     wavs = os.listdir(data_folder+'/'+speaker)
     for wav in wavs:
-        print
+        print(wav)
         song = AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav)
         sec = song.duration_seconds
         rule_times = sec//cat_sec
