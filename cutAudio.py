@@ -4,7 +4,7 @@ import os
 
 save_folder = "voice1_cutAudio"
 data_folder = "voice1_build"
-cat_sec = 60
+cat_sec = 800
 
 
 
@@ -39,7 +39,7 @@ for speaker in speakers:
         #剩餘部分
         if rule_times_flout!=0:
             time = song[-rule_times_flout*1000:]
-            data_split_filename=('{}/{}/{}/{}_{}.wav'.format(save_folder,speaker,wav[:-4],wav[:-4],'lower_60'))
+            data_split_filename=('{}/{}/{}/{}_{}.wav'.format(save_folder,speaker,wav[:-4],wav[:-4],'0'))
             time.export(data_split_filename,format="wav")
 
 
