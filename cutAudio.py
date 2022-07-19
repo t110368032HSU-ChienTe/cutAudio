@@ -22,6 +22,7 @@ for speaker in speakers:
         rule_times_flout = sec%cat_sec
         #是否低於60s
         if rule_times != 0:
+            print("save{}".format(rule_times))
             #每隔60秒切割
             for part in range(rule_times):
                 #防止part=0
