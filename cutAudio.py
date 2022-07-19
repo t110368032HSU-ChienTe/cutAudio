@@ -1,8 +1,8 @@
 from pydub import AudioSegment
 import os
 
-save_folder = "."
-data_folder = "."
+save_folder = "voice1_cutAudio"
+data_folder = "voice1_build"
 cat_sec = 60
 cat_sec = cat_sec*1000
 
