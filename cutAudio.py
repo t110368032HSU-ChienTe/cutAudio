@@ -34,12 +34,12 @@ for speaker in speakers:
                 part+=1
                 print(part)
                 time = song[(part-1)*cat_sec*1000:(part)*cat_sec*1000]
-                data_split_filename=('{}/{}/{}_{}.wav'.format(save_folder,speaker,wav[:-4],part))
+                data_split_filename=('{}/{}/{}/{}_{}.wav'.format(save_folder,speaker,wav[:-4],wav[:-4],part))
                 time.export(data_split_filename,format="wav")
         #剩餘部分
         if rule_times_flout!=0:
             time = song[-rule_times_flout*1000:]
-            data_split_filename=('{}/{}/{}_{}.wav'.format(save_folder,speaker,wav[:-4],'lower_60'))
+            data_split_filename=('{}/{}/{}/{}_{}.wav'.format(save_folder,speaker,wav[:-4],wav[:-4],'lower_60'))
             time.export(data_split_filename,format="wav")
 
 
