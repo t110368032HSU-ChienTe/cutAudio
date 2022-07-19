@@ -22,6 +22,7 @@ for speaker in speakers:
         sec = song.duration_seconds
         rule_times = sec//cat_sec
         rule_times_flout = sec%cat_sec
+        print(rule_times)
         print(sec,cat_sec)
         #是否低於60s
         if rule_times != 0:
