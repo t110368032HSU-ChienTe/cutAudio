@@ -2,10 +2,8 @@ import secrets
 from pydub import AudioSegment
 import os
 
-save_folder = "voice1_mergeAudioAudio"
+save_folder = "voice1_mergeAudio"
 data_folder = "voice1_cutAudio"
-cat_sec = 1000
-
 
 
 speakers = os.listdir(data_folder)
