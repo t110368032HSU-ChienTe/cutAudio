@@ -20,7 +20,7 @@ for speaker in speakers:
         #看wav的名子
         wavs =  os.listdir(data_folder+'/'+speaker+'/'+wav_name_folder)
         #先宣告第一個wav，後面再加，最後儲存
-        awesome= AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav_name_folder+'/'+wav[0])
+        awesome= AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav_name_folder+'/'+wavs[0])
         for wav in wavs[1:]:
             
             song = AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav_name_folder+'/'+wav)
