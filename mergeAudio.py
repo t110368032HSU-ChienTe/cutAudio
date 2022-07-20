@@ -2,7 +2,7 @@ import secrets
 from pydub import AudioSegment
 import os
 
-data_folder = "voice_em/enhanced_0218"
+data_folder = "voice1_em/enhanced_0218"
 save_folder = "voice1_mergeAudio"
 refer_folder = "voice1_cutAudio"
 
