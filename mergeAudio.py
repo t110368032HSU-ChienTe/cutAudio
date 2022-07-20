@@ -21,8 +21,8 @@ for speaker in speakers:
             os.mkdir("{}/{}/{}".format(save_folder,speaker,wav_name_folder))
         #看wav的名子
         wavs =  os.listdir(data_folder+'/'+speaker+'/'+wav_name_folder)
-        awesome= None
-        for wav in wavs:
+        awesome= AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav_name_folder+'/'+wav[0])
+        for wav in wavs[1:]:
             
             song = AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav_name_folder+'/'+wav)
             awesome+=song
