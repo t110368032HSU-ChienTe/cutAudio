@@ -105,6 +105,18 @@ for speaker in speakers:
     ))
 
 
+with open('result_ofFullsubnet.csv', 'w',newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['總人數','{}人'.format(str(total_people))])
+    writer.writerow(['scv總數','{}個'.format(str(total_csv_file))])
+    writer.writerow(['speech總檔數','{}個'.format(total_speech_file)])
+    writer.writerow(['speech>4秒(sec)總檔數','{}個'.format(str(less_4sec_file))])
+    
+    writer.writerow(["至少30秒","{}人".format(str(least_30sce_people))])
+    writer.writerow(["至少60秒","{}人".format(str(least_60sce_people))])
+    writer.writerow(["至少120秒","{}人".format(str(least_120sce_people))])
+    writer.writerow([])
+
 
 
 
