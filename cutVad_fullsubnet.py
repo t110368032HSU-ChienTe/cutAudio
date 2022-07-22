@@ -102,7 +102,7 @@ for speaker in speakers:
                     #幫名稱轉字串並補零至7個位數，方便辨識
                     start = str(start).replace('.','').zfill(7)
                     stop = str(stop).replace('.','').zfill(7)
-                    wav_save_name = wav_folderName + start + '-' + stop + '.wav'
+                    wav_save_name = start + '-' + stop + '.wav'
                     wav_save_name_path = os.path.join(speakWav_folder,wav_save_name)
                     #儲存音檔
                     awesome.export(wav_save_name_path, format="wav")             
