@@ -112,13 +112,17 @@ for speaker in speakers:
             least_60sce_people+=1
             if speakSec >= 120:
                 least_120sce_people+=1
-    print("第{}位語者,共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>4s)為{}個,可用秒數為{}秒".format(
+    print("第{}位語者,共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>4s)為{}個,可用秒數為{}秒\
+    ,目前speech檔累積{}個,可用(>4秒)檔案累積{}個,可用秒數為{}秒".format(
         speakers.index(speaker)+1,
         total_people,
         len(wavs),
         speaker_speech_file,
         speakSec_less4_file,
-        speakSec)
+        speakSec,
+        speaker_speech_file,
+        less_4sec_file,
+        total_less_4sec_sec)
     )
 
 
