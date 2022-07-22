@@ -120,7 +120,7 @@ for speaker in speakers:
         speaker_speech_file,
         speakSec_less4_file,
         speakSec,
-        speaker_speech_file,
+        total_speech_file,
         less_4sec_file,
         total_less_4sec_sec)
     )
