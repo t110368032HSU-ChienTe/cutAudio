@@ -107,7 +107,7 @@ for speaker in speakers:
                     wav_save_name = start + '-' + stop + '.wav'
                     wav_save_name_path = os.path.join(speakWav_folder,wav_save_name)
                     #儲存音檔
-                    awesome.export(wav_save_name_path, format="wav")             
+                    time.export(wav_save_name_path, format="wav")             
     if speakSec >= 30:
         least_30sce_people+=1
         if speakSec >= 60:
