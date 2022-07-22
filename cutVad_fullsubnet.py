@@ -93,7 +93,7 @@ for speaker in speakers:
                     wav_save_name = wav_folderName + start + '-' + stop + '.wav'
                     wav_save_name_path = os.path.join(speakWav_folder,wav_save_name)
                     #儲存音檔
-                    awesome.export(wav_save_name, format="wav")             
+                    awesome.export(wav_save_name_path, format="wav")             
     if speakSec >= 30:
         least_30sce_people+=1
         if speakSec >= 60:
@@ -111,7 +111,7 @@ with open('result_ofFullsubnet.csv', 'w',newline='') as csvfile:
     writer.writerow(['scv總數','{}個'.format(str(total_csv_file))])
     writer.writerow(['speech總檔數','{}個'.format(total_speech_file)])
     writer.writerow(['speech>4秒(sec)總檔數','{}個'.format(str(less_4sec_file))])
-    
+
     writer.writerow(["至少30秒","{}人".format(str(least_30sce_people))])
     writer.writerow(["至少60秒","{}人".format(str(least_60sce_people))])
     writer.writerow(["至少120秒","{}人".format(str(least_120sce_people))])
