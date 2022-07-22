@@ -11,7 +11,10 @@ refer_csv = "voice1_vad_fullsubnet_csv"
 
 #總檔數與小於4秒檔數
 total_speech_file  =0
+
 less_4sec_file  =0
+#>4秒總秒數
+total_less_4sec_sec = 0
 #每一位語者的秒數
 speakSec = None
 speakSec_less4_file = None
@@ -83,7 +86,10 @@ for speaker in speakers:
                 
                 if use_time > 4:
                     #單位語者秒數累加
-                    speakSec+=use_time
+                    use_time = round(use_time,2)
+                    speakSec += use_time
+                    total_less_4sec_sec += use_time
+
                     #至少4秒檔數+1
                     less_4sec_file+=1
                     speakSec_less4_file+=1
@@ -121,7 +127,7 @@ with open('result_ofFullsubnet.csv', 'w',newline='') as csvfile:
     writer.writerow(['scv總數','{}個'.format(str(total_csv_file))])
     writer.writerow(['speech總檔數','{}個'.format(total_speech_file)])
     writer.writerow(['speech>4秒(sec)總檔數','{}個'.format(str(less_4sec_file))])
-
+    writer.writerow(['speech>4秒(sec)總秒數','{}秒'.format(str(total_less_4sec_sec))])
     writer.writerow(["至少30秒","{}人".format(str(least_30sce_people))])
     writer.writerow(["至少60秒","{}人".format(str(least_60sce_people))])
     writer.writerow(["至少120秒","{}人".format(str(least_120sce_people))])
