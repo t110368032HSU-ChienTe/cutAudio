@@ -85,11 +85,12 @@ for speaker in speakers:
                 use_time=stop-start
                 
                 if use_time > 4:
-                    #單位語者秒數累加
-                    use_time = round(use_time,2)
+                    #單位語者秒數累加，完畢後四捨五入取小數點前兩位
                     speakSec += use_time
+                    speakSec = round(speakSec,2)
                     total_less_4sec_sec += use_time
-
+                    total_less_4sec_sec = round(total_less_4sec_sec,2)
+                    print(start,stop,use_time,speakSec,total_less_4sec_sec)
                     #至少4秒檔數+1
                     less_4sec_file+=1
                     speakSec_less4_file+=1
