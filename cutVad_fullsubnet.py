@@ -7,7 +7,9 @@ import csv
 data_folder = "voice1_mergeAudio_fullsubnet"
 save_folder = "voice1_cutVad_fullsubnet"
 refer_folder = "voice1_build"
-refer_csv = "voice1_vad_fullsubnet_csv"                                                                        
+refer_csv = "voice1_vad_fullsubnet_csv"     
+
+less_sec = 4
 
 #總檔數與小於4秒檔數
 total_speech_file  =0
@@ -84,7 +86,7 @@ for speaker in speakers:
                 #算時間<4s去掉
                 use_time=stop-start
                 
-                if use_time > 4:
+                if use_time > less_sec:
                     #單位語者秒數累加，完畢後四捨五入取小數點前兩位
                     speakSec += use_time
                     speakSec = round(speakSec,2)
@@ -112,15 +114,17 @@ for speaker in speakers:
             least_60sce_people+=1
             if speakSec >= 120:
                 least_120sce_people+=1
-    print("第{}位語者,共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>4s)為{}個,可用秒數為{}秒\
-    ,目前speech檔累積{}個,可用(>4秒)檔案累積{}個,可用秒數為{}秒".format(
+    print("第{}位語者,共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>{}s)為{}個,可用秒數為{}秒\
+    ,目前speech檔累積{}個,可用(>{}秒)檔案累積{}個,可用秒數為{}秒".format(
         speakers.index(speaker)+1,
         total_people,
         len(wavs),
         speaker_speech_file,
+        less_sec,
         speakSec_less4_file,
         speakSec,
         total_speech_file,
+        less_sec,
         less_4sec_file,
         total_less_4sec_sec)
     )
@@ -131,8 +135,8 @@ with open('result_ofFullsubnet.csv', 'w',newline='') as csvfile:
     writer.writerow(['總人數','{}人'.format(str(total_people))])
     writer.writerow(['scv總數','{}個'.format(str(total_csv_file))])
     writer.writerow(['speech總檔數','{}個'.format(total_speech_file)])
-    writer.writerow(['speech>4秒(sec)總檔數','{}個'.format(str(less_4sec_file))])
-    writer.writerow(['speech>4秒(sec)總秒數','{}秒'.format(str(total_less_4sec_sec))])
+    writer.writerow(['speech>{}秒(sec)總檔數','{}個'.format(less_sec,str(less_4sec_file))])
+    writer.writerow(['speech>{}秒(sec)總秒數','{}秒'.format(less_sec,str(total_less_4sec_sec))])
     writer.writerow(["至少30秒","{}人".format(str(least_30sce_people))])
     writer.writerow(["至少60秒","{}人".format(str(least_60sce_people))])
     writer.writerow(["至少120秒","{}人".format(str(least_120sce_people))])
