@@ -75,8 +75,10 @@ for speaker in speakers:
                 stop =round(float(stop),2)
                 #總speech檔數+1
                 total_speech_file+=1
-                #算時間>4s去掉
-                if use_time:=stop-start > 4:
+                #算時間<4s去掉
+                use_time=stop-start
+                print(use_time)
+                if use_time > 4:
                     #單位語者秒數累加
                     speakSec+=use_time
                     #至少4秒檔數+1
@@ -101,8 +103,12 @@ for speaker in speakers:
             if speakSec >= 120:
                 least_120sce_people+=1
     print("第{}位語者，共{}位，該語者有{}個音檔，可用檔案數(>4s)為{}個,可用秒數為{}秒".format(
-        speakers.index(speaker),total_people,len(wavs),speakSec_less4_file,str(speakSec)
-    ))
+        speakers.index(speaker)+1,
+        total_people,
+        len(wavs),
+        speakSec_less4_file,
+        speakSec)
+    )
 
 
 with open('result_ofFullsubnet.csv', 'w',newline='') as csvfile:
