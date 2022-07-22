@@ -90,7 +90,7 @@ for speaker in speakers:
                     speakSec = round(speakSec,2)
                     total_less_4sec_sec += use_time
                     total_less_4sec_sec = round(total_less_4sec_sec,2)
-                    print(start,stop,use_time,speakSec,total_less_4sec_sec)
+                    
                     #至少4秒檔數+1
                     less_4sec_file+=1
                     speakSec_less4_file+=1
