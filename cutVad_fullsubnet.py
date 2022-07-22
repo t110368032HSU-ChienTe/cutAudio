@@ -15,6 +15,7 @@ less_4sec_file  =0
 #每一位語者的秒數
 speakSec = None
 speakSec_less4_file = None
+speaker_speech_file = None
 #總csv
 total_csv_file =0
 
@@ -45,6 +46,7 @@ def csv_data(csv_path):
 #掃語者
 for speaker in speakers:
     speakSec=0
+    speaker_speech_file = 0
     speakSec_less4_file = 0
     #在儲存區創建語者資料夾
     speak_folder = os.path.join(save_folder,speaker)
@@ -73,11 +75,12 @@ for speaker in speakers:
                 #浮點數四捨五入取前兩位
                 start=round(float(start),2)
                 stop =round(float(stop),2)
-                #總speech檔數+1
+                #總speech檔數與單位語者總speech檔數+1
                 total_speech_file+=1
+                speaker_speech_file+=1
                 #算時間<4s去掉
                 use_time=stop-start
-                print(use_time)
+                
                 if use_time > 4:
                     #單位語者秒數累加
                     speakSec+=use_time
@@ -102,10 +105,11 @@ for speaker in speakers:
             least_60sce_people+=1
             if speakSec >= 120:
                 least_120sce_people+=1
-    print("第{}位語者，共{}位，該語者有{}個音檔，可用檔案數(>4s)為{}個,可用秒數為{}秒".format(
+    print("第{}位語者,共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>4s)為{}個,可用秒數為{}秒".format(
         speakers.index(speaker)+1,
         total_people,
         len(wavs),
+        speaker_speech_file,
         speakSec_less4_file,
         speakSec)
     )
