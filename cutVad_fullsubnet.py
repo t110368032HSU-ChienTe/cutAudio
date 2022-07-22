@@ -64,7 +64,7 @@ for speaker in speakers:
         #csv位置
         csv_wav_path = os.path.join(refer_csv,wav_folderName+'.csv')
         #除噪wav音檔位置
-        wav_emPath = os.path.join(data_folder,wav)
+        wav_emPath = os.path.join(data_folder,wav_folderName,wav)
 
         data_CSV = csv_data(csv_wav_path)
         for type,start,stop in data_CSV:
