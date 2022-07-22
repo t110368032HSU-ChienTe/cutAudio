@@ -6,7 +6,7 @@ import os
 import csv
 
 data_folder = "voice1_mergeAudio_fullsubnet"
-save_folder = "voice1_cutVad_fullsubnet"
+save_folder = "voice1_cutVad_fullsubnet_threading"
 refer_folder = "voice1_build"
 refer_csv = "voice1_vad_fullsubnet_csv"     
 
