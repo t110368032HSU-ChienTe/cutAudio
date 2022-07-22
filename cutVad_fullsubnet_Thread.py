@@ -55,7 +55,7 @@ def save_wav(awesome):
 
 #掃語者
 for speaker in speakers:
-    globals()['number'+str(speaker)] =None
+    
 
     speakSec=0
     speaker_speech_file = 0
@@ -69,6 +69,7 @@ for speaker in speakers:
     #掃wav
     wavs = os.listdir(speak_path)
     for wav in wavs:
+        globals()['number'+str(wav)] =None
         wav_folderName= wav[:-4]
         #在儲存區的語者資料夾創建wav資料夾
         speakWav_folder= os.path.join(speak_folder,wav_folderName)
@@ -115,8 +116,8 @@ for speaker in speakers:
                     wav_save_name_path = os.path.join(speakWav_folder,wav_save_name)
                     #儲存音檔
                     # awesome.export(wav_save_name_path, format="wav")
-                    globals()['number'+str(speaker)] = threading.Thread(target=save_wav(time))
-                    globals()['number'+str(speaker)].start()           
+                    globals()['number'+str(wav)] = threading.Thread(target=save_wav(time))
+                    globals()['number'+str(wav)].start()           
     if speakSec >= 30:
         least_30sce_people+=1
         if speakSec >= 60:
