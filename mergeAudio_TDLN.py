@@ -36,9 +36,9 @@ for speaker in speakers:
         awesome= AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav_name_folder+'/'+wavs[0])
         for wav in wavs[1:]:
             
-            song = AudioSegment.from_wav(data_folder+'/'+wav_name_folder+'/'+wav)
+            song = AudioSegment.from_wav(data_folder+'/'+speaker+'/'+wav_name_folder+'/'+wav)
             awesome+=song
-        wav_save_name= save_folder+'/'+speaker+'/'+wav_name_folder+'/'+wav_name_folder+'.wav'
+        wav_save_name = save_folder+'/'+speaker+'/'+wav_name_folder+'/'+wav_name_folder+'.wav'
         #儲存
         awesome.export(wav_save_name, format="wav")
 
