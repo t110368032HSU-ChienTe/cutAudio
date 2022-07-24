@@ -101,7 +101,11 @@ for speaker in speakers:
                     #秒(sec)要表示成毫秒
                     time = awesome[start*1000:stop*1000]
                     
+                    #幫缺少的小數點0補零至後兩位
+                    start = "%.2f" % start
+                    stop  = "%.2f" % stop
                     #幫名稱轉字串並補零至7個位數，方便辨識
+
                     start = str(start).replace('.','').zfill(7)
                     stop = str(stop).replace('.','').zfill(7)
                     wav_save_name = start + '-' + stop + '.wav'
