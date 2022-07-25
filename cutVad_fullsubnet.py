@@ -5,7 +5,7 @@ import os
 import csv
 
 data_folder = "voice1_mergeAudio_fullsubnet"
-save_folder = "voice1_cutVad_fullsubnet"
+save_folder = "voice1_cutVad_fullsubnet_180"
 refer_folder = "voice1_build"
 refer_csv = "voice1_vad_fullsubnet_csv"     
 
@@ -29,7 +29,9 @@ total_people = 0
 least_30sce_people = 0
 least_60sce_people = 0
 least_120sce_people = 0
-
+least_180sce_people = 0
+##紀錄>180秒語者是誰
+speaker_180s =[]
 
 csv_list = os.listdir(refer_folder)
 total_csv_file = len(csv_list)
@@ -118,6 +120,9 @@ for speaker in speakers:
             least_60sce_people+=1
             if speakSec >= 120:
                 least_120sce_people+=1
+                if speakSec >=180:
+                    least_180sce_people+=1
+                    speaker_180s.append(speaker)
     print("第{}位語者,共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>{}秒)為{}個,可用秒數為{}秒\
     ,目前speech檔累積{}個,可用(>{}秒)檔案累積{}個,可用秒數為{}秒".format(
         speakers.index(speaker)+1,
@@ -132,19 +137,23 @@ for speaker in speakers:
         less_4sec_file,
         total_less_4sec_sec)
     )
-
-
+#儲存>180s的人
+with open('result_fullsubnet_180.csv', 'w',newline='') as csv:
+    write = csv.writer(csv)
+    for speaker_180 in speaker_180s:
+        write.writerow(speaker_180)
+#儲存csv資訊
 with open('result_ofFullsubnet.csv', 'w',newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['總人數','{}人'.format(str(total_people))])
     writer.writerow(['scv總數','{}個'.format(str(total_csv_file))])
     writer.writerow(['speech總檔數','{}個'.format(total_speech_file)])
-    writer.writerow(['speech>{}秒(sec)總檔數','{}個'.format(less_sec,str(less_4sec_file))])
-    writer.writerow(['speech>{}秒(sec)總秒數','{}秒'.format(less_sec,str(total_less_4sec_sec))])
+    writer.writerow(['speech>{}秒(sec),總檔數{}個'.format(less_sec,str(less_4sec_file))])
+    writer.writerow(['speech>{}秒(sec),總秒數{}秒'.format(less_sec,str(total_less_4sec_sec))])
     writer.writerow(["至少30秒","{}人".format(str(least_30sce_people))])
     writer.writerow(["至少60秒","{}人".format(str(least_60sce_people))])
     writer.writerow(["至少120秒","{}人".format(str(least_120sce_people))])
-    writer.writerow([])
+    writer.writerow(["至少180秒","{}人".format(str(least_180sce_people))])
 
 
 
