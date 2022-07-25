@@ -138,10 +138,10 @@ for speaker in speakers:
         total_less_4sec_sec)
     )
 #儲存>180s的人
-with open('result_fullsubnet_180.csv', 'w',newline='') as csv:
-    write = csv.writer(csv)
-    for speaker_180 in speaker_180s:
-        write.writerow(speaker_180)
+with open('result_fullsubnet_180.csv', 'w',newline='') as csvfile:
+    write = csv.writer(csvfile)
+        
+    write.writerow(speaker_180s)
 #儲存csv資訊
 with open('result_ofFullsubnet.csv', 'w',newline='') as csvfile:
     writer = csv.writer(csvfile)
