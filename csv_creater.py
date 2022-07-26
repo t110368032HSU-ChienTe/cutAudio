@@ -16,8 +16,8 @@ total_10_20= 0
 
 total_list=[]
 
-if not os.path.exists(data_folder):
-    os.mkdir(data_folder)
+if not os.path.exists(save_folder):
+    os.mkdir(save_folder)
 
 speakers = os.listdir(data_folder)
 #看語者們
@@ -30,7 +30,7 @@ for speaker in speakers:
         wavs_list = os.listdir(wavs_folder)
         #看名稱
         for wav in wavs_list:
-            wav_name=os.path.join(wavs_list,wav)
+            wav_name=os.path.join(wavs_folder,wav)
             awesome = AudioSegment.from_wav(wav_name)
             
             len_sec = len(awesome)/1000.0
