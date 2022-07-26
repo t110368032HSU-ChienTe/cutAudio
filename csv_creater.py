@@ -51,7 +51,7 @@ for SPK,WAVS,WAV,PATH in total_list:
     del_ecapa_10_20_for= ecapa_10_20_for.copy()
     del del_ecapa_10_20_for[SPK]
     
-    choce_diffwav= random.sample(del_ecapa_10_20_for.values(),k=4)
+    choce_diffwav= random.sample(list(del_ecapa_10_20_for.values()),k=4)
     for SpkWav in choce_diffwav:
         save_list.append=[0,PATH,SpkWav]
     
