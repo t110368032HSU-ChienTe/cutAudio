@@ -103,7 +103,7 @@ for speaker in speakers:
                     total_less_4sec_sec += use_time
                     total_less_4sec_sec = round(total_less_4sec_sec,2)
                     
-                    if speakSec >= 180:
+                    if speakSec > 180:
                         #超出180sec，設定停止
                         DonNot_addWav = True
                         #溢出時間
@@ -152,9 +152,10 @@ for speaker in speakers:
                 if speakSec >=180:
                     least_180sce_people+=1
                     speaker_180s.append(speaker)
-    print("第{}位語者,共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>{}秒)為{}個,可用秒數為{}秒\
+    print("第{}位語者{},共{}位,該語者有{}個音檔,speech檔為{}個,可用檔案數(>{}秒)為{}個,可用秒數為{}秒\
     ,目前speech檔累積{}個,可用(>{}秒)檔案累積{}個,可用秒數為{}秒".format(
         speakers.index(speaker)+1,
+        speaker,
         total_people,
         len(wavs),
         speaker_speech_file,
@@ -166,6 +167,10 @@ for speaker in speakers:
         less_4sec_file,
         total_less_4sec_sec)
     )
+    #如果小於180S的人刪除資料夾
+    if speakSec < 180:
+        os.rmdir(speak_folder)
+        print("刪除{}語者,不足180秒".format(speaker))
 # 儲存>180s的人
 with open('result_fullsubnet_180_less15.csv', 'w',newline='') as csvfile:
     write = csv.writer(csvfile)
