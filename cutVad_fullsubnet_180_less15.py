@@ -1,8 +1,10 @@
+import imp
 from importlib.resources import path
 import secrets
 from pydub import AudioSegment
 import os
 import csv
+import shutil
 
 data_folder = "voice1_mergeAudio_fullsubnet"
 save_folder = "voice1_cutVad_fullsubnet_180_less15"
@@ -59,8 +61,8 @@ for speaker in speakers:
     DonNot_addWav = False
     #在儲存區創建語者資料夾
     speak_folder = os.path.join(save_folder,speaker)
-    if not os.path.exists(speak_folder):
-        os.mkdir(speak_folder)
+    # if not os.path.exists(speak_folder):
+    #     os.mkdir(speak_folder)
     #
     speak_path = os.path.join(refer_folder,speaker)
     #掃wav
@@ -169,7 +171,7 @@ for speaker in speakers:
     )
     #如果小於180S的人刪除資料夾
     if speakSec < 180:
-        os.rmdir(speak_folder)
+        shutil.rmtree(speak_folder)
         print("刪除{}語者,不足180秒".format(speaker))
 # 儲存>180s的人
 with open('result_fullsubnet_180_less15.csv', 'w',newline='') as csvfile:
