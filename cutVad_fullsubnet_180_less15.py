@@ -170,7 +170,7 @@ for speaker in speakers:
         total_less_4sec_sec)
     )
     #如果小於180S的人刪除資料夾
-    if speakSec < 180:
+    if 0 < speakSec < 180:
         shutil.rmtree(speak_folder)
         print("刪除{}語者,不足180秒".format(speaker))
 # 儲存>180s的人
