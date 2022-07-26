@@ -71,7 +71,7 @@ for speaker in speakers:
             break
         wav_folderName= wav[:-4]
         #在儲存區的語者資料夾創建wav資料夾
-        # speakWav_folder= os.path.join(speak_folder,wav_folderName)
+        speakWav_folder= os.path.join(speak_folder,wav_folderName)
         # if not os.path.exists(speakWav_folder):
         #     os.mkdir(speakWav_folder)
         #
@@ -130,12 +130,12 @@ for speaker in speakers:
 
 
                     #在儲存區創建語者資料夾
-                    speak_folder = os.path.join(save_folder,speaker)
+                    # speak_folder = os.path.join(save_folder,speaker)
                     if not os.path.exists(speak_folder):
                         os.mkdir(speak_folder)
 
                     #在儲存區的語者資料夾創建wav資料夾
-                    speakWav_folder= os.path.join(speak_folder,wav_folderName)
+                    # speakWav_folder= os.path.join(speak_folder,wav_folderName)
                     if not os.path.exists(speakWav_folder):
                         os.mkdir(speakWav_folder)
                     
