@@ -71,11 +71,11 @@ for SPK,WAVS,WAV,PATH in total_list:
         except:
             pass
         if len(spkWav) >= 4:
-            chice_wav2= random.sample(chice_wav2,k=4)
+            chice_wav2= random.sample(spkWav,k=4)
             for UseWav in chice_wav2:
                 save_list.append([1,PATH,chice_wav2])
         else:
-            chice_wav2= random.choices(chice_wav2,k=4)
+            chice_wav2= random.choices(spkWav,k=4)
             for UseWav in chice_wav2:
                 save_list.append([1,PATH,chice_wav2])
 
