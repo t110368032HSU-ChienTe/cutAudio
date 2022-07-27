@@ -86,7 +86,7 @@ for i in save_list[:20]:
     
 with open(f'{save_folder}/{save_file}.txt','wt') as fout:
     for da in save_list:
-        print(f'{da[0]} {da[1]} {da[2]}',file=fout)
+        print(str(da).strip("\'[]"),file=fout)
 
     
     
