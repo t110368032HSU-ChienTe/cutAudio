@@ -60,7 +60,7 @@ for SPK,WAVS,WAV,PATH in total_list:
     for Who in whoto_choice:
         wavlist=ecapa_10_20_for[Who]
         chice_wav = random.choice(wavlist)
-        save_list.append([0,PATH,chice_wav])
+        save_list.append([0,PATH[1:],chice_wav[1:]])
 
     if not SPK in ecapa_10_20_for:
         K+=1
@@ -74,11 +74,11 @@ for SPK,WAVS,WAV,PATH in total_list:
         if len(spkWav) >= 4:
             chice_wav2= random.sample(spkWav,k=4)
             for UseWav in chice_wav2:
-                save_list.append([1,PATH,UseWav])
+                save_list.append([1,PATH[1:],UseWav[1:]])
         else:
             chice_wav2= random.choices(spkWav,k=4)
             for UseWav in chice_wav2:
-                save_list.append([1,PATH,UseWav])
+                save_list.append([1,PATH[1:],UseWav[1:]])
 
 for i in save_list[:20]:
     print(i)
