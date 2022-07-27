@@ -87,7 +87,9 @@ for i in save_list[:20]:
 with open(f'{save_folder}/{save_file}.txt','wt') as fout:
     for da in save_list:
         da= str(da).replace("\'","")
-        
+        da= da.replace("[","")
+        da= da.replace("]","")
+        da= da.replace(" ","")
         print(da,file=fout)
 
     
