@@ -12,7 +12,7 @@ sec_max = 20
 
 #介於兩者間清單
 ecapa_10_20_for={}
-ecapa_10_20= {}
+
 total_10_20= 0
 
 total_list=[]
@@ -40,7 +40,7 @@ for speaker in speakers:
             save_name = wav_name.replace(data_folder,"",1)
             if sec_min<len_sec<sec_max:
                 total_10_20+=1
-                if not ecapa_10_20_for in speaker:
+                if not speaker in ecapa_10_20_for:
                     ecapa_10_20_for.update({speaker:[save_name]})
                 ecapa_10_20_for[speaker].append(save_name)
                 
