@@ -59,7 +59,7 @@ for SPK,WAVS,WAV,PATH in total_list:
     for Who in whoto_choice:
         wavlist=ecapa_10_20_for[Who]
         chice_wav = random.choice(wavlist)
-        save_list.append([0,SPK,chice_wav])
+        save_list.append([0,PATH,chice_wav])
 
     
     
