@@ -52,7 +52,8 @@ for SPK,WAVS,WAV,PATH in total_list:
     #配四個1:1
     spkList= list(ecapa_10_20_for.keys())
     #清除選定語者
-    spkList.remove(SPK)
+    if SPK in spkList:
+        spkList.remove(SPK)
     #選哪四個語者
     whoto_choice=random.sample(spkList,k=4)
     for Who in whoto_choice:
