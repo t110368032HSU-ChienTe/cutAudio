@@ -40,26 +40,29 @@ for speaker in speakers:
             save_name = wav_name.replace(data_folder,"",1)
             if sec_min<len_sec<sec_max:
                 total_10_20+=1
-                ecapa_10_20_for.update({speaker:save_name})
-                ecapa_10_20.update({speaker:{wavs:{wav:{save_name}}}})
+                if not ecapa_10_20_for in speaker:
+                    ecapa_10_20_for.update({speaker:[save_name]})
+                ecapa_10_20_for[speaker].append(save_name)
+                
                 print("第{}個,名稱{}".format(total_10_20,save_name))
             total_list.append([speaker,wavs,wav,save_name])
 
 
 for SPK,WAVS,WAV,PATH in total_list:
     #配四個1:1
-    del_ecapa_10_20_for= ecapa_10_20_for.copy()
-    del del_ecapa_10_20_for[SPK]
-    
-    choce_diffwav= random.sample(list(del_ecapa_10_20_for.values()),k=4)
-    for SpkWav in choce_diffwav:
-        save_list.append=[0,PATH,SpkWav]
-    
-    Only_ecapa_10_20=list(list(ecapa_10_20[SPK].values()).values())
-    choce_samewav= random.sample(Only_ecapa_10_20,k=4)
-    for SamWav in choce_samewav:
-        save_list.append[1,PATH,SamWav]
+    spkList= list(ecapa_10_20_for.keys())
+    #清除選定語者
+    spkList.remove(SPK)
+    #選哪四個語者
+    whoto_choice=random.sample(spkList,k=4)
+    for Who in whoto_choice:
+        wavlist=ecapa_10_20_for[Who]
+        chice_wav = random.choice(wavlist)
+        save_list.append(chice_wav)
 
+    
+    
+    
 
 print(save_list)
 
