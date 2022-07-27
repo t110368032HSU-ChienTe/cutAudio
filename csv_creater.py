@@ -84,9 +84,9 @@ for i in save_list[:20]:
     print(i)
 
     
-with open(f'{save_folder}/{save_name}','wt'):
+with open(f'{save_folder}/{save_file}','wt') as fout:
     for da in save_list:
-        print(f'{da[0]} {da[1]} {da[2]}')
+        print(f'{da[0]} {da[1]} {da[2]}',file=fout)
 
     
     
