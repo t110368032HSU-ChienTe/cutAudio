@@ -61,11 +61,11 @@ for SPK,WAVS,WAV,PATH in total_list:
         chice_wav = random.choice(wavlist)
         save_list.append([0,PATH,chice_wav])
 
-    
-    
+    spkWav = list(ecapa_10_20_for[SPK])
+    print(spkWav)
     
 
-print(save_list[:10])
+# print(save_list[:10])
 
     
 
