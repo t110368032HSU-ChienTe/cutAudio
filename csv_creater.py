@@ -4,7 +4,7 @@ import random
 from pydub import AudioSegment
 
 
-data_folder = "voice1_cutVad_fullsubnet_180_less15"
+data_folder = "voice1_cutVad_fullsubnet_180_less15/wav"
 save_folder = "results_csv"
 save_file  = "sv_ecapa_10_20"
 
@@ -86,7 +86,9 @@ for i in save_list[:20]:
     
 with open(f'{save_folder}/{save_file}.txt','wt') as fout:
     for da in save_list:
-        print(str(da).strip("\'[]"),file=fout)
+        da= str(da).replace("\'","")
+        
+        print(da,file=fout)
 
     
     
