@@ -1,3 +1,4 @@
+from curses import A_ALTCHARSET
 import os
 import random
 from pydub import AudioSegment
@@ -61,8 +62,29 @@ for SPK,WAVS,WAV,PATH in total_list:
         chice_wav = random.choice(wavlist)
         save_list.append([0,PATH,chice_wav])
 
-    spkWav = list(ecapa_10_20_for[SPK])
-    print(spkWav)
+    if not SPK in ecapa_10_20_for:
+        print("ss")
+    else:
+        spkWav = list(ecapa_10_20_for[SPK])
+        try:
+            spkWav.remove(PATH)
+        except:
+            pass
+        if len(spkWav) >= 4:
+            chice_wav2= random.sample(chice_wav2,k=4)
+            for UseWav in chice_wav2:
+                save_list.append([1,PATH,chice_wav2])
+        else:
+            chice_wav2= random.choices(chice_wav2,k=4)
+            for UseWav in chice_wav2:
+                save_list.append([1,PATH,chice_wav2])
+
+for i in save_list[:20]:
+    print(i)
+
+    
+
+    
     
 
 # print(save_list[:10])
