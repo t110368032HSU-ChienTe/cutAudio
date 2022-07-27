@@ -48,7 +48,7 @@ for speaker in speakers:
                 print("第{}個,名稱{}".format(total_10_20,save_name))
             total_list.append([speaker,wavs,wav,save_name])
 
-
+K=0
 for SPK,WAVS,WAV,PATH in total_list:
     #配四個1:1
     spkList= list(ecapa_10_20_for.keys())
@@ -63,7 +63,8 @@ for SPK,WAVS,WAV,PATH in total_list:
         save_list.append([0,PATH,chice_wav])
 
     if not SPK in ecapa_10_20_for:
-        print("ss")
+        K+=1
+        print(f'有{K}個人沒有語料')
     else:
         spkWav = list(ecapa_10_20_for[SPK])
         try:
@@ -73,11 +74,11 @@ for SPK,WAVS,WAV,PATH in total_list:
         if len(spkWav) >= 4:
             chice_wav2= random.sample(spkWav,k=4)
             for UseWav in chice_wav2:
-                save_list.append([1,PATH,chice_wav2])
+                save_list.append([1,PATH,UseWav])
         else:
             chice_wav2= random.choices(spkWav,k=4)
             for UseWav in chice_wav2:
-                save_list.append([1,PATH,chice_wav2])
+                save_list.append([1,PATH,UseWav])
 
 for i in save_list[:20]:
     print(i)
